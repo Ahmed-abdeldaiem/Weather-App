@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- data-bs-theme="dark" -->
+<html lang="en" data-bs-theme="dark" >
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather APP</title>
+    <!-- Bootstrap -5.3.2 -->
+    <link rel="stylesheet" href="CSS files/bootstrap.min.css" />
+    <!-- fontawesome-free-6.5.1-web -->
+    <link rel="stylesheet" href="CSS files/all.min.css" />
+    <!-- CSS File -->
+    <link rel="stylesheet" href="CSS files/style.css" />
+    <!-- FONTS  -->
+  </head>
+  <body class="position-relative" data-bs-spy="scroll" data-bs-target="#mainNav">
+    <!-- NAv BAr Section -->
+    <section>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary bg-opacity-50 py-4" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand d-flex gap-3" href="#">
+            <img
+              src="images/logo.png"
+              alt="Logo"
+              width="35%"
+              class="d-inline-block"
+            />
+            <div>
+              <h5>Weather</h5>
+              <h6 class="fs-6 fw-light">tagline goes here</h6>
+            </div>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ms-auto text-center fw-semibold gap-lg-5 gap-3 mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link px-3 active" aria-current="page" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-3" href="#">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-3" href="#">Live cameras</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-3" href="#">Photos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-3" href="#">Contact</a>
+              </li>
+            </ul>
+          
+          </div>
+        </div>
+      </nav>
+
+
+    
+    </section>
+
+    <section id="home" class="mb-5">
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="input-group mb-3 mt-5 w-75 position-relative">
+            
+            <input type="text" class="form-control bg-info bg-opacity-10 rounded-pill p-3 position-relative" placeholder="Find Your Location..." aria-label="Location" aria-describedby="searchBtn" id="searchInput">
+            <span class="btn input-group-text text-dark position-absolute rounded-pill px-3 top-50 translate-middle-y translate-middle-x fw-semibold" id="searchBtn">search</span>
+          </div>
+          
+
+
+        
+          
+        </div>
+      </div>
+      <div class="container mt-3">
+        <div class="row justify-content-between">
+          <div class="col-lg-4">
+            <div class="weather-time-card text-start">
+              <h2 id="currentTime" class="">Time</h2>
+              <h1 id="currentDate" class="">Date</h1>
+              
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="weather-location-card text-end">
+              <div id="currentLocation" class="text-center">Location</div>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </section>
+
+    <section class="mt-5">
+      <h2 class="text-center text-danger" id="serverError"></h2>
+      <div class="container-fluid bg-secondary bg-opacity-50 py-5">
+        <div class="row justify-content-around row-gap-lg-0 row-gap-4">
+          <div class="col-lg-3 col-10">
+            <div class="weather-data-card card bg-transparent py-3">
+              <div class="card-header d-flex justify-content-between">
+                <h4 id="today">today</h4>
+                <h4 id="todayDate">date</h4>
+              </div>
+              <div class="card-body d-flex justify-content-around py-5">
+                <h2 class="position-relative d-inline-block fs-1 "><span class="pe-3 position-relative" id="todayDeg">18</span><span class="position-absolute o-deg">o</span><span class="ps-2">C</span></h2>
+                <img id="todayImg" src="https://cdn.weatherapi.com/weather/64x64/day/113.png"  alt="today weather Icon">
+              </div>
+             <div class="d-flex justify-content-around">
+              <h4 id="todayDesc" class="text-center text-capitalize text-info">Description</h4>
+              <h5 ><i class="fas fa-compass"></i> <span id="windDirection">WD</span></h5>
+              <h5 ><i class="fas fa-wind"></i> <span id="windSpeed">WS</span></h5>
+             </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-10">
+            <div class="weather-data-card card bg-transparent py-3">
+              <div class="card-header d-flex justify-content-between">
+                <h4 id="nexDay">nextday</h4>
+                <h4 id="nextDayDate">date</h4>
+              </div>
+              <div class="card-body d-flex flex-column justify-content-around align-items-center py-2">
+                <h2 class="position-relative d-inline-block fs-3"><span class="pe-3 position-relative" id="nextDayMaxDeg">18</span><span class="position-absolute o-deg">o</span><span class="ps-2">C</span></h2>
+                <h2 class="position-relative d-inline-block fs-4"><span class="pe-3 position-relative" id="nextDayMinDeg">18</span><span class="position-absolute o-deg">o</span><span class="ps-2">C</span></h2>
+                <img id="nexDayImg" src="https://cdn.weatherapi.com/weather/64x64/day/113.png"  alt="today weather Icon">
+              </div>
+              <h4 id="nextDayDesc" class="text-center text-capitalize text-info">Description</h4>
+            </div>
+          </div>
+          <div class="col-lg-3 col-10">
+            <div class="weather-data-card card bg-transparent py-3">
+              <div class="card-header d-flex justify-content-between">
+                <h4 id="afterNextDay">afternext</h4>
+                <h4 id="afterNextDate">date</h4>
+              </div>
+              <div class="card-body d-flex justify-content-around flex-column align-items-center py-2" >
+                <h2 class="position-relative d-inline-block fs-3"><span class="pe-3 position-relative" id="afterNextMaxDeg">18</span><span class="position-absolute o-deg">o</span><span class="ps-2">C</span></h2>
+                <h2 class="position-relative d-inline-block fs-4"><span class="pe-3 position-relative" id="afterNextMinDeg">18</span><span class="position-absolute o-deg">o</span><span class="ps-2">C</span></h2>
+                <img id="afterNextDayImg" src="https://cdn.weatherapi.com/weather/64x64/day/113.png"  alt="today weather Icon">
+              </div>
+              <h4 id="afterNextDesc" class="text-center text-capitalize text-info">Description</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark bg-opacity-75 mt-5 py-3">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-8">
+            <div class="input-group mb-3 mt-5 w-75 position-relative">
+            
+              <input type="text" class="form-control bg-info bg-opacity-10 rounded-pill p-3 position-relative" placeholder="Enter Your Email to Subscribe..." aria-label="Location" aria-describedby="subscribeBtn">
+              <span class="btn btn-info input-group-text position-absolute rounded-pill px-3 top-50 translate-middle-y translate-middle-x fw-semibold" id="subscribeBtn">Subscribe</span>
+            </div>
+          </div>
+          <div class="col-lg-4">
+              <div class="socialMediaIcons d-flex justify-content-center align-items-center column-gap-4">
+
+                <span><i class="fab fa-facebook-f"></i></span>
+                <span><i class="fab fa-twitter"></i></span>
+                <span><i class="fab fa-google-plus-g"></i></span>
+                <span><i class="fab fa-pinterest-p"></i></span>            
+                
+
+              </div>
+          </div>
+          <div class="col-12">
+            <h4 class="fs-5 text-white fw-light py-3">Copyright <span id="year">year</span>@ Route. Designed by Ahmed Abdeldaiem. All rights reserved</h4>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- change mood icon -->
+   
+      <button class="rounded-circle position-fixed " id="theme"></button>
+    
+
+    <!-- fontawesome-free-6.5.1-web -->
+    <script src="JS files/all.min.js"></script>
+    <!-- Bootstrap -5.3.2 -->
+    <script src="JS files/bootstrap.bundle.min.js"></script>
+    <!-- JS File -->
+    <script src="JS files/main.js"></script>
+  </body>
+</html>
